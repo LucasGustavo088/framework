@@ -1,0 +1,58 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-family: 'Ubuntu' !important;
+}
+
+h1{
+	font-weight: 600;
+}
+
+h2{
+	font-weight: 500;
+}
+
+header{
+	display: flex;
+	padding:20px 5%;
+	justify-content: space-between;
+	align-items: center;
+	background:#f1f1f1;
+}
+
+.title-brandcrumbs{
+	font-weight: 400;
+}
+
+.form-header-log{
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: row;
+	align-items: center;
+}
+
+.form-header-login input, label{
+	padding:7px 5px;
+	box-sizing: border-box;
+	border:none;
+	height: 40px;
+	background:#fff;
+	outline: none;
+}
+
+label{
+	height: 50px;
+	font-size: 20px;
+}
+
+.form-header-login input:nth-child(1){
+	border:1px solid #111;
+	margin-right: -15px;
+}
+
+.form-header-login button{
+	padding:7px 5px;
+}
