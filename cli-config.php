@@ -1,7 +1,5 @@
 <?php
-use Doctrine\ORM\Tools\Console\ConsoleRunner;
+// cli-config.php
+include "Core/bootstrap.php";
 
-// Aqui é carrego o arquivo que criamos antes
-require_once 'bootstrap.php';
-
-return ConsoleRunner::createHelperSet($entityManager);
+return \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager);
