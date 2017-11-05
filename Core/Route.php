@@ -5,11 +5,11 @@ class Route {
 	private $routes;
 
 	public function __construct(array $routes){
-		$this->setRoutes($routes);
+		$this->set_routes($routes);
 		$this->run();
 	} 
 
-	private function setRoutes($routes){
+	private function set_routes($routes){
 		foreach($routes as $route){
 			$controller_and_function = explode('@', $route[1]);
 			$r = [$route[0], $controller_and_function[0], $controller_and_function[1]];
@@ -20,7 +20,7 @@ class Route {
 		$this->routes = $new_routes;		
 	}
 
-	private function getRequest(){
+	private function get_request(){
 		$obj = new \stdClass;
 
         foreach ($_GET as $key => $value){
@@ -34,12 +34,12 @@ class Route {
         return $obj;
 	}
 
-	private function getUrl(){
+	private function get_url(){
 		return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 	}
 
 	private function run(){
-		$url = $this->getUrl();
+		$url = $this->get_url();
 		$urlArray = explode('/', $url);
 		$found = false;
 		$param = array();
@@ -68,25 +68,25 @@ class Route {
 		}
 
 		if($found){
-			$controller = Container::newController($controller);
+			$controller = Container::new_controller($controller);
 			//$controller->$action();
 
 			switch (count($param)){
                 case 1:
-                    $controller->$action($param[0], $this->getRequest());
+                    $controller->$action($param[0], $this->get_request());
                     break;
                 case 2:
-                    $controller->$action($param[0], $param[1], $this->getRequest());
+                    $controller->$action($param[0], $param[1], $this->get_request());
                     break;
                 case 3:
-                    $controller->$action($param[0], $param[1], $param[2], $this->getRequest());
+                    $controller->$action($param[0], $param[1], $param[2], $this->get_request());
                     break;
                 default:
-                    $controller->$action($this->getRequest());
+                    $controller->$action($this->get_request());
                     break;
             }
 		} else {
-			Container::pageNotFound();
+			Container::page_not_found();
 		}
 	}
 }
