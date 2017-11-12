@@ -1,6 +1,6 @@
 <?php 
 
-namespace Core;
+namespace App\Controllers;
 
 class ControllerBase {
 	protected $view;
@@ -23,16 +23,16 @@ class ControllerBase {
 	}
 
 	protected function content(){
-		$chamada = str_replace('Base', '', $this->viewPath);
-		if(file_exists(__DIR__ . "/../app/views/" . $chamada . "/" . $this->viewPath . ".phtml")){
-			require_once __DIR__ . "/../app/views/" . $chamada . "/" . $this->viewPath . ".phtml"; 
+		$modulo = str_replace('Base', '', $this->viewPath);
+		if(file_exists(__DIR__ . "/../app/views/" . $modulo . "/" . $this->viewPath . ".phtml")){
+			require_once __DIR__ . "/../app/views/" . $modulo . "/" . $this->viewPath . ".phtml"; 
 		} else {
 			echo "Error: View não encontrada";
 		}
 	}
 
 	protected function layout(){
-		$chamada = str_replace('Base', '', $this->layoutPath);
+		$modulo = str_replace('Base', '', $this->layoutPath);
 		if(file_exists(__DIR__ . "/../app/views/" . $this->layoutPath . ".phtml")){
 			require_once __DIR__ . "/../app/views/" . $this->layoutPath . ".phtml"; 
 		} else {

@@ -9,6 +9,7 @@ class Route {
 		$this->run();
 	} 
 
+	//Verify all of custom routes 
 	private function set_routes($routes){
 		foreach($routes as $route){
 			$controller_and_function = explode('@', $route[1]);
@@ -30,6 +31,10 @@ class Route {
         foreach ($_POST as $key => $value){
             @$obj->post->$key = $value;
         }
+
+        foreach ($_REQUEST as $key => $value){
+        	@$obj->request->$key = $value;
+        }
         
         return $obj;
 	}
@@ -39,11 +44,14 @@ class Route {
 	}
 
 	private function run(){
+		//get current url
 		$url = $this->get_url();
+
 		$urlArray = explode('/', $url);
 		$found = false;
 		$param = array();
 		
+		//Verify all of the url of routes.php is equal to current url
 		foreach($this->routes as $route){
 			$routeArray = explode('/', $route[0]);
 
@@ -71,6 +79,7 @@ class Route {
 			$controller = Container::new_controller($controller);
 			//$controller->$action();
 
+			//mudar o request e deixar apenas como 2 parametros
 			switch (count($param)){
                 case 1:
                     $controller->$action($param[0], $this->get_request());

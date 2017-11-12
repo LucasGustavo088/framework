@@ -5,8 +5,10 @@ namespace Core;
 class Container{
 
 	public static function new_controller($controller){
-		$chamada = str_replace('Base', '',$controller);
-		$objContoller = "App\\Controllers\\" . $chamada . "\\" . $controller;
+		require_once DIR_FRAMEWORK . "Core/Framework/Framework.php";
+		
+		$modulo = str_replace('Base', '',$controller);
+		$objContoller = "App\\Controllers\\" . $modulo . "\\" . $controller;
 		return new $objContoller;
 	}
 

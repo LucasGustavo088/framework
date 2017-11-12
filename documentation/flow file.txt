@@ -1,0 +1,6 @@
+Framework
+
+1) Iniciar a index.php
+2) Index.php chamará a index_public.php dentro de public 
+1) Carregar Autoload composer;
+2) Carregar 

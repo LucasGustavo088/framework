@@ -1,9 +1,9 @@
 <?php 
-namespace App\Controllers\home;
+namespace App\Controllers\Home; 
 
-use Core\ControllerBase;
+use App\Controllers\ControllerApp;
 
-class HomeBase extends ControllerBase{
+class HomeBase extends ControllerApp{
 
 	public function index(){
 		$this->render_view('home', 'layout');
