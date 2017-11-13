@@ -1,8 +1,11 @@
 <?php 
 
-namespace App\Controllers; 
-use \App\Controllers\ControllerBase;
+namespace Core\Framework\Controller;
 
 class ControllerApp extends ControllerBase{
-
+	public $teste = '';
+	
+	public function __construct(){
+		echo "controllerd";s
+	}
 }

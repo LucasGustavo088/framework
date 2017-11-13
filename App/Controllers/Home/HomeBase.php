@@ -1,12 +1,11 @@
 <?php 
-namespace App\Controllers\Home; 
 
-use App\Controllers\ControllerApp;
+namespace App\Controllers\Home;
+use Core\AppFramework\ControllerBase as ControllerBase;
 
-class HomeBase extends ControllerApp{
+class HomeBase extends ControllerBase{
 
 	public function index(){
-		$this->render_view('home', 'layout');
-
+		$this->view->ue();
 	}
 }

@@ -1,17 +1,34 @@
 <?php 
 
-namespace Core\AppFramework;
+namespace Core\Framework;
+use Core\Framework\Model\ModelBase;
+use Core\AppFramework\ViewBase as ViewBase;
+use Core\Framework\Controller\ControllerBase;
 
-include_once(DIR_FRAMEWORK . "Core/AppFramework/ModelBase.php");
-include_once(DIR_FRAMEWORK . "Core/AppFramework/ViewBase.php");
-include_once(DIR_FRAMEWORK . "Core/AppFramework/ControllerBase.php");
+class Framework {
 
-include_once(DIR_FRAMEWORK . "Core/helpers/helpers.php");
+	public static $framework;
+	public $controllers; 
+	public $controller;
+	public $view = array();
 
-class Framework{
-	function __construct(){
-		echo "string";
+	public function __construct(){
+		self::$framework = $this;
+		$this->controllers = array();
+		$this->view = new ViewBase();
 	}
 
+	public static function getFramework() {
+	    if (null === self::$framework) {
+	        $framework = new self;
+	        $framework->iniciar_framework();
+	        return $framework;
+	    }
+	    return self::$framework;
+	}
+
+	public function iniciar_framework() {
+	    self::$framework->view = new ViewBase;
+	}
 
 }

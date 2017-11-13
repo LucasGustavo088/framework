@@ -2,14 +2,19 @@
 
 namespace Core;
 
+use Core\Framework\Framework;
+use Core\AppFramework\ControllerBase;
+
 class Container{
 
 	public static function new_controller($controller){
-		require_once DIR_FRAMEWORK . "Core/Framework/Framework.php";
 		
+		new Framework;
+
 		$modulo = str_replace('Base', '',$controller);
-		$objContoller = "App\\Controllers\\" . $modulo . "\\" . $controller;
-		return new $objContoller;
+		$controller = "App\\Controllers\\" . $modulo . "\\" . $controller;
+
+		return new $controller;
 	}
 
 	public static function page_not_found(){
