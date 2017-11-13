@@ -18,8 +18,8 @@ class Container{
 	}
 
 	public static function page_not_found(){
-		if($file_exists(__DIR__ . "/.../App/Views/page_not_found/page_not_found.phtml")){
-			return require_once __DIR__ . "/.../App/Views/page_not_found/page_not_found.phtml";
+		if(file_exists(DIR_FRAMEWORK . "/App/Views/page_not_found/page_not_found.phtml")){
+			return require_once DIR_FRAMEWORK . "/App/Views/page_not_found/page_not_found.phtml";
 		}
 	}
 }

@@ -14,14 +14,14 @@ class Users {
      * @Column(type="integer")
      * @GeneratedValue
      */
-    private $id;
+    public $id;
     //...
 
     /** @Column(type="string", name="name") */
-    private $name;
+    public $name;
 
     /** @Column(type="string", name="observacao") */
-    private $observacao;
+    public $observacao;
 
     function setName($name){
     	$this->name = $name;
